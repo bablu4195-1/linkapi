@@ -1,0 +1,30 @@
+<button class="btn btn-danger" (click)="getUsers()">Get Users Info</button>
+<nav class="navbar">
+<input class="form-control" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="Search()"
+placeHolder="Place your firstName here">
+</nav>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th (click)="sort('empNo')">empNo&nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sort('firstName')">firstName&nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sort('lastName')">lastName&nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sort('highestDegree')">highestDegree&nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sort('positionTitle')">positionTitle&nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sort('wages')">wages&nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sort('status')">status&nbsp;<i class="fa fa-sort"></i></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of data | orderBy: key: reverse | paginate:{itemsPerPage:5,currentPage:p}" >
+    <td>{{item.empNo}}</td>
+    <td>{{item.firstName}}</td>
+    <td>{{item.lastName}}</td>
+    <td>{{item.highestDegree}}</td>
+    <td>{{item.positionTitle}}</td>
+    <td>{{item.wages}}</td>
+    <td>{{item.status}}</td>
+  </tr>
+  </tbody>
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</table>
