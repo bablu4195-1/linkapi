@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobserviceService } from '../jobservice.service';
 import { Jobs } from '../job';
-import { Ng2OrderModule } from 'ng2-order-pipe';
+
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
@@ -30,11 +30,11 @@ export class DataTableComponent implements OnInit {
     }
     // tslint:disable-next-line:typedef
     Search() {
-      if (this.firstName == ''){
+      if (this.firstName === ''){
         this.ngOnInit();
       } else {
-        this.jobs = this.jobs.filter(res => {
-          return res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+        this.jobs = this.jobs.filter(response => {
+          return response.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
         });
       }
     }
