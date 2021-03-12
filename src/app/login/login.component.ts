@@ -12,8 +12,9 @@ import { stringify } from '@angular/compiler/src/util';
 
 export class LoginComponent implements OnInit {
   response: any;
+  data: Array<any> = [];
   model: any = {};
-  formGroup: any = FormGroup;
+  formgroup: any = FormGroup;
   constructor(private Jobs: JobserviceService) {}
 
   ngOnInit(): void {
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   initForm(){
-    this.formGroup = new FormGroup({
+    this.formgroup = new FormGroup({
      username: new FormControl('', Validators.required),
      password: new FormControl('', Validators.required)
     });
@@ -30,12 +31,16 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   loginProcess(){
     this.Jobs.login(this.model.username, this.model.password).subscribe(response => {
-      if (this.response.valid){
+      if (this.response == null){
         console.log(response);
-      }else {
-        alert(response);
       }
     });
+  }
+  // tslint:disable-next-line:typedef
+  getEmployee(){
+    this.Jobs.getForms().subscribe((data: any[]) =>
+    console.log(data)
+    );
   }
 
 }

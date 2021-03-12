@@ -18,7 +18,7 @@ export class DataTableComponent implements OnInit {
   p = 1;
   // tslint:disable-next-line:typedef
   getUsers(){
-    this.jobService.getData().subscribe((data: any[]) =>
+    this.jobService.getForms().subscribe((data: any[]) =>
     this.data = data
 
     );
