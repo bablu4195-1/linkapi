@@ -14,28 +14,28 @@ export class JobserviceService {
   }
   // tslint:disable-next-line:typedef
   login(username: string, password: string) {
+    console.log(username);
+    console.log(password);
+    // tslint:disable-next-line:max-line-length
     // tslint:disable-next-line:max-line-length
     return this.http.post<{access_token: string}>('https://cloud-source.net/WMSService/api/v1/authenticate', {username, password}).pipe(tap(res => {
-    localStorage.setItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTU1ODAxNDMsImlhdCI6MTYxNTU2MjE0M30.aiRUmO_wK6n-puzaj9N9dhXEYn8YaV_QrueTs_NwLKSAtJEpUpN7u1wlgLKTU7Coke0ptrmq-QeUfIadBrHNZg', res.access_token);
+    console.log(
+    localStorage.setItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTU1ODAxNDMsImlhdCI6MTYxNTU2MjE0M30.aiRUmO_wK6n-puzaj9N9dhXEYn8YaV_QrueTs_NwLKSAtJEpUpN7u1wlgLKTU7Coke0ptrmq-QeUfIadBrHNZg', res.access_token));
+    console.log(res.access_token);
+    console.log(res);
 }));
 }
 // tslint:disable-next-line:typedef
-register(username: string, password: string) {
-  // tslint:disable-next-line:max-line-length
-  return this.http.post<{access_token: string}>('https://cloud-source.net/WMSService/api/v1/register', {username, password}).pipe(tap(res => {
-  this.login(username, password);
-}));
-}
-// tslint:disable-next-line:typedef
-logout() {
-  localStorage.removeItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTU1ODAxNDMsImlhdCI6MTYxNTU2MjE0M30.aiRUmO_wK6n-puzaj9N9dhXEYn8YaV_QrueTs_NwLKSAtJEpUpN7u1wlgLKTU7Coke0ptrmq-QeUfIadBrHNZg');
-}
+
 public get loggedIn(): boolean{
   return localStorage.getItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTU1ODAxNDMsImlhdCI6MTYxNTU2MjE0M30.aiRUmO_wK6n-puzaj9N9dhXEYn8YaV_QrueTs_NwLKSAtJEpUpN7u1wlgLKTU7Coke0ptrmq-QeUfIadBrHNZg') !==  null;
 }
 getForms(): Observable<any>{
- const url = 'https://cloud-source.net/WMSService/api/v1/emp/employee/6';
- return this.http.get<any>(url);
+ return this.http.get<{access_token: string}>('https://cloud-source.net/WMSService/api/v1/emp/employee/6', {}).pipe(tap(res => {
+  console.log(res);
+  localStorage.setItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTU1ODAxNDMsImlhdCI6MTYxNTU2MjE0M30.aiRUmO_wK6n-puzaj9N9dhXEYn8YaV_QrueTs_NwLKSAtJEpUpN7u1wlgLKTU7Coke0ptrmq-QeUfIadBrHNZg', res.access_token);
+  console.log(localStorage);
+}));
 }
 }
 
