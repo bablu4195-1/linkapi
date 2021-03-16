@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
   data: Array<any> = [];
   model: any = {};
   formGroup: any = FormGroup;
+  userid: any;
+  expiresin: any;
+  token: any;
   constructor(private Jobs: JobserviceService) {}
 
   ngOnInit(): void {
@@ -33,12 +36,25 @@ export class LoginComponent implements OnInit {
   loginProcess(){
     this.Jobs.login(this.model.username, this.model.password).subscribe(response => {
     console.log(this.Jobs.login);
+    localStorage.getItem('userid');
+    console.log(localStorage.getItem('userid'));
+    localStorage.getItem('expiresin');
+    console.log(localStorage.getItem('expiresin'));
+    localStorage.getItem('token');
+    console.log(localStorage.getItem('token'));
     });
   }
-
+   // tslint:disable-next-line:typedef
+   loginget() {
+     localStorage.getItem('userid');
+     console.log(localStorage.getItem('userid'));
+     localStorage.getItem('expiresin');
+     console.log(localStorage.getItem('expiresin'));
+     localStorage.getItem('token');
+     console.log(localStorage.getItem('token'));
+   }
   // tslint:disable-next-line:typedef
   getEmployee(){
-    console.log(this.Jobs);
     this.Jobs.getForms().subscribe((data: any[]) =>
     console.log(data)
     );
