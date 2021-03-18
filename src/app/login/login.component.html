@@ -8,8 +8,40 @@
     <input type="text" [(ngModel)]="model.password" name="password" class="formControl" placeholder="Enter your password">
   </div>
   <div>
-    <button (click)="loginProcess()">login</button>
-    <button (click)="getEmployee()">loginget</button>
+    <button (click)="getEmployee()">login & get</button>
   </div>
+  <h1>Personal Details :</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>DateOfBirth</th>
+        <th>firstName</th>
+        <th>gender</th>
+        <th>lastName</th>
+        <th>maritalStatus</th>
+        <th>middleName</th>
+        <th>nationality</th>
+        <th>personalDetailsId</th>
+        <th>ssn</th>
+        <th>userDetailsId</th>
+        <th>userPhotoPath</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of data">
+      <td>{{emp.DateOfBirth}}</td>
+      <td>{{emp.firstName}]</td>
+      <td>{{emp.gender}}</td>
+      <td>{{emp.lastName}}</td>
+      <td>{{emp.maritalStatus}}</td>
+      <td>{{emp.middleName}}</td>
+      <td>{{emp.nationality}}</td>
+      <td>{{emp.personalDetailsId}}</td>
+      <td>{{emp.ssn}}</td>
+      <td>{{emp.userDetailsId}}</td>
+      <td>{{emp.userPhotoPath}}</td>
+      </tr>
+    </tbody>
+  </table>
 
 </form>

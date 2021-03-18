@@ -4,6 +4,8 @@ import { JobserviceService } from '../jobservice.service';
 import { tap } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { stringify } from '@angular/compiler/src/util';
+import { Employee } from '../employee';
+import { Jobs } from '../job';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,18 +13,14 @@ import { stringify } from '@angular/compiler/src/util';
 })
 
 export class LoginComponent implements OnInit {
+  // tslint:disable-next-line:no-shadowed-variable
+  constructor(private Jobs: JobserviceService) { }
   response: any;
-  data: Array<any> = [];
+  employee: Employee[] | undefined;
   model: any = {};
   formGroup: any = FormGroup;
-  userid: any;
-  expiresin: any;
-  token: any;
-  constructor(private Jobs: JobserviceService) {}
-
+  data: any;
   ngOnInit(): void {
-    this.initForm();
-    this.loginProcess();
   }
   // tslint:disable-next-line:typedef
   initForm(){
@@ -55,11 +53,10 @@ export class LoginComponent implements OnInit {
    }
   // tslint:disable-next-line:typedef
   getEmployee(){
-    this.Jobs.getForms().subscribe((data: any[]) =>
-    console.log(data)
-    );
+    console.log(this.Jobs.getForms);
+    this.Jobs.getForms().subscribe(response => {
+    this.employee = response;
+    console.log(this.employee);
+    });
   }
-
 }
-
-
