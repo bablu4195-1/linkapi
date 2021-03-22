@@ -16,17 +16,17 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private Jobs: JobserviceService) { }
   response: any;
-  employee: Employee[] | undefined;
+  data: any = [];
+  employee: Employee[] = [];
   model: any = {};
   formGroup: any = FormGroup;
-  data: any;
   ngOnInit(): void {
   }
   // tslint:disable-next-line:typedef
   initForm(){
     this.formGroup = new FormGroup({
-     username: new FormControl(),
-     password: new FormControl()
+     username: new FormControl('', [Validators.required]),
+     password: new FormControl('', [Validators.required])
     });
   }
 
@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit {
   getEmployee(){
     console.log(this.Jobs.getForms);
     this.Jobs.getForms().subscribe(response => {
-    this.employee = response;
-    console.log(this.employee);
-    });
+    this.data = response;
+    console.log(response);
+      });
   }
 }
