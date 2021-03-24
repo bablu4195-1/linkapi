@@ -20,23 +20,23 @@ export class JobserviceService {
     // tslint:disable-next-line:max-line-length
     return this.http.post<{access_token: string}>('https://cloud-source.net/WMSService/api/v1/authenticate', {username, password}).pipe(tap(res => {
     console.log(res);
-    localStorage.setItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY0NTU2NjAsImlhdCI6MTYxNjQzNzY2MH0.vcnlGxBNfgPjUDW8J50w45ICxg6q8MfDBHJ3wqBmPDTMcF9YcPuYB151U_H8q3zRTuiks3oGSekjtxQmKP3kfA', res.access_token);
+    localStorage.setItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY2MjcxMDEsImlhdCI6MTYxNjYwOTEwMX0.PmluawcO1nhshQkSMdpAE_SSj1_d9T9tpEq5nH_PcPmpPdLcDZF0sx4djRmDO6OhM16IFSZPit_PGvoMqvLlHQ', res.access_token);
     localStorage.setItem('userid', '43');
     localStorage.setItem('expiresin', '30');
-    localStorage.setItem('token', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY0NTU2NjAsImlhdCI6MTYxNjQzNzY2MH0.vcnlGxBNfgPjUDW8J50w45ICxg6q8MfDBHJ3wqBmPDTMcF9YcPuYB151U_H8q3zRTuiks3oGSekjtxQmKP3kfA');
+    localStorage.setItem('token', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY2MjcxMDEsImlhdCI6MTYxNjYwOTEwMX0.PmluawcO1nhshQkSMdpAE_SSj1_d9T9tpEq5nH_PcPmpPdLcDZF0sx4djRmDO6OhM16IFSZPit_PGvoMqvLlHQ');
   }));
 }
 // tslint:disable-next-line:typedef
 
 public get loggedIn(): boolean{
-  return localStorage.getItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY0NTU2NjAsImlhdCI6MTYxNjQzNzY2MH0.vcnlGxBNfgPjUDW8J50w45ICxg6q8MfDBHJ3wqBmPDTMcF9YcPuYB151U_H8q3zRTuiks3oGSekjtxQmKP3kfA') !==  null;
+  return localStorage.getItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY2MjcxMDEsImlhdCI6MTYxNjYwOTEwMX0.PmluawcO1nhshQkSMdpAE_SSj1_d9T9tpEq5nH_PcPmpPdLcDZF0sx4djRmDO6OhM16IFSZPit_PGvoMqvLlHQ') !==  null;
 }
 getForms(): Observable<any>{
   const BASE_URL = 'https://cloud-source.net';
   console.log(BASE_URL);
-  return this.http.get<Employee>(BASE_URL + '/WMSService/api/v1/emp/employee/6' , {
+  return this.http.get<any>(BASE_URL + '/WMSService/api/v1/emp/employee/6' , {
     headers : {
-        Authorization : 'Bearer' + ' ' + 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY0NTU2NjAsImlhdCI6MTYxNjQzNzY2MH0.vcnlGxBNfgPjUDW8J50w45ICxg6q8MfDBHJ3wqBmPDTMcF9YcPuYB151U_H8q3zRTuiks3oGSekjtxQmKP3kfA'
+        Authorization : 'Bearer' + ' ' + 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY2MjcxMDEsImlhdCI6MTYxNjYwOTEwMX0.PmluawcO1nhshQkSMdpAE_SSj1_d9T9tpEq5nH_PcPmpPdLcDZF0sx4djRmDO6OhM16IFSZPit_PGvoMqvLlHQ'
     }
 
 });

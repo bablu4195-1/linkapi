@@ -9,17 +9,75 @@
   </div>
   <div>
     <button (click)="getEmployee()">login & get</button>
+   <h1>Personal Details</h1>
+   </div>
+   <table class="table table-bordered">
+     <thead>
+       <th>attachments</th>
+       <th>educations</th>
+       <th>employments</th>
+       <th>immigrations</th>
+       <th>languages</th>
+       <th>licences</th>
+       <th>memberships</th>
+       <th>passwords</th>
+       <th>reportingTo</th>
+       <th>role</th>
+       <th>roleId</th>
+       <th>skills</th>
+       <th>status</th>
+       <th>userDetailsId</th>
+       <th>username</th>
+     </thead>
+     <tbody>
+       <tr *ngFor="let item of employee">
+         <td>{{item.attachments}}</td>
+         <td>{{item.educations}}</td>
+         <td>{{item.employments}}</td>
+         <td>{{item.immigrations}}</td>
+         <td>{{item.languages}}</td>
+         <td>{{item.licences}}</td>
+         <td>{{item.memberships}}</td>
+         <td>{{item.password}}</td>
+         <td>{{item.reportingTo}}</td>
+         <td>{{item.role}}</td>
+         <td>{{item.roleId}}</td>
+         <td>{{item.skills}}</td>
+         <td>{{item.status}}</td>
+         <td>{{item.userDetailsId}}</td>
+         <td>{{item.userName}}</td>
+       </tr>
+      </tbody>
+    </table>
+    <table>
+       <tr *ngFor="let item of employee">
+         <td>{{item.personalDetails.dateOfBirth}}</td>
+         <td>{{item.personalDetails.firstName}}</td>
+         <td>{{item.personalDetails.gender}}</td>
+         <td>{{item.personalDetails.lastName}}</td>
+         <td>{{item.personalDetails.maritalStatus}}</td>
+         <td>{{item.personalDetails.middleName}}</td>
+         <td>{{item.personalDetails.nationality}}</td>
+         <td>{{item.personalDetails.personalDetailsId}}</td>
+         <td>{{item.personalDetails.ssn}}</td>
+         <td>{{item.personalDetails.userDetailsId}}</td>
+         <td>{{item.personalDetails.userPhotoPath}}</td>
+       </tr>
+       <tr *ngFor="let item of employee">
+        <td>{{item.contactDetails.contactDetailsId}}</td>
+        <td>{{item.contactDetails.addressLine1}}</td>
+        <td>{{item.contactDetails.addressLine2}}</td>
+        <td>{{item.contactDetails.city}}</td>
+        <td>{{item.contactDetails.country}}</td>
+        <td>{{item.contactDetails.homeTelephone}}</td>
+        <td>{{item.contactDetails.mobile}}</td>
+        <td>{{item.contactDetails.otherEmail}}</td>
+        <td>{{item.contactDetails.state}}</td>
+        <td>{{item.contactDetails.userDetailsId}}</td>
+        <td>{{item.contactDetails.workEmail}}</td>
+        <td>{{item.contactDetails.workTelephone}}</td>
+        <td>{{item.contactDetails.zipCode}}</td>
+       </tr>
 
-  <h1>Personal Details :</h1>
-  <div *ngFor="let item of data | keyvalue">
-    <div *ngFor="let item of data.personalDetails | keyvalue">
-       <div *ngFor="let item of data.personalDetails.personalDetail| keyvalue">
-         <div *ngFor="let item of data.personalDetails.personalDetail.webPersonalDetails| keyvalue">
-            {{item.key}} : {{item.value}}
-        </div>
-        </div>
-       </div>
-      </div>
-
-</div>
+      </table>
 </form>

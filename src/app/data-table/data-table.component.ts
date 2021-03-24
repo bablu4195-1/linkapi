@@ -20,7 +20,6 @@ export class DataTableComponent implements OnInit {
   getUsers(){
     this.jobService.getForms().subscribe((data: any[]) =>
     this.data = data
-
     );
   }
   ngOnInit(): void {

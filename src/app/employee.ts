@@ -1,29 +1,23 @@
 
+import { PersonalDetails } from './personaldetails';
+import { ContactDetails } from './contactdetails';
 export class Employee {
-  // tslint:disable-next-line:max-line-length
-  constructor(dateOfBirth: string, firstName: string, lastName: string, gender: string, maritalStatus: string, middleName: string, nationality: string, personalDetailsId: number, ssn: string, userDetailsId: number, userPhotoPath: string){
-    this.dateOfBirth = dateOfBirth;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.gender = gender;
-    this.maritalStatus = maritalStatus;
-    this.middleName = middleName;
-    this.nationality = nationality;
-    this.personalDetailsId = personalDetailsId;
-    this.ssn = ssn;
-    this.userDetailsId = userDetailsId;
-    this.userPhotoPath =  userPhotoPath;
-
-  }
-  dateOfBirth: string;
-  firstName: string;
-  lastName: string;
-  gender: string;
-  maritalStatus: string;
-  middleName: string;
-  nationality: string;
-  personalDetailsId: number;
-  ssn: string;
-  userDetailsId: number;
-  userPhotoPath: string;
-  }
+    userDetailsId: number | undefined;
+    userName: string | undefined;
+    password: null;
+    roleId: number | undefined;
+    role: string | undefined;
+    status: string | undefined;
+    personalDetails: PersonalDetails | undefined;
+    contactDetails: ContactDetails | undefined;
+    educations: null;
+    employments: null;
+    immigrations: null;
+    languages: null;
+    reportingTo: null;
+    skills: null;
+    licences: null;
+    memberships: null;
+    attachments: null;
+    constructor(){}
+}

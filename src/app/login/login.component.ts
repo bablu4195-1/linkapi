@@ -14,9 +14,9 @@ import { Jobs } from '../job';
 
 export class LoginComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private Jobs: JobserviceService) { }
+  constructor(private Jobs: JobserviceService) {  this.data = new Array<any>(); }
   response: any;
-  data: any = [];
+  data: any = {};
   employee: Employee[] = [];
   model: any = {};
   formGroup: any = FormGroup;
@@ -54,9 +54,10 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getEmployee(){
     console.log(this.Jobs.getForms);
-    this.Jobs.getForms().subscribe(response => {
-    this.data = response;
-    console.log(response);
+    this.Jobs.getForms().subscribe(data => {
+    this.employee = data;
+    console.log(this.employee);
+    console.log(data);
       });
   }
 }
