@@ -8,10 +8,6 @@ import { Employee } from './employee';
 })
 export class JobserviceService {
   constructor(private http: HttpClient) { }
-  getData(): Observable<any> {
-    const url = 'https://cloud-source.net/WMSService/api/v1/emp/pafemployees';
-    return this.http.get<any>(url);
-  }
   // tslint:disable-next-line:typedef
   login(username: string, password: string) {
     console.log(username);
@@ -28,13 +24,11 @@ export class JobserviceService {
 }
 // tslint:disable-next-line:typedef
 
-public get loggedIn(): boolean{
-  return localStorage.getItem('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY2MjcxMDEsImlhdCI6MTYxNjYwOTEwMX0.PmluawcO1nhshQkSMdpAE_SSj1_d9T9tpEq5nH_PcPmpPdLcDZF0sx4djRmDO6OhM16IFSZPit_PGvoMqvLlHQ') !==  null;
-}
+
 getForms(): Observable<any>{
   const BASE_URL = 'https://cloud-source.net';
   console.log(BASE_URL);
-  return this.http.get<any>(BASE_URL + '/WMSService/api/v1/emp/employee/6' , {
+  return this.http.get<Employee>(BASE_URL + '/WMSService/api/v1/emp/employee/6' , {
     headers : {
         Authorization : 'Bearer' + ' ' + 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYWJsdTQxOTUiLCJleHAiOjE2MTY2MjcxMDEsImlhdCI6MTYxNjYwOTEwMX0.PmluawcO1nhshQkSMdpAE_SSj1_d9T9tpEq5nH_PcPmpPdLcDZF0sx4djRmDO6OhM16IFSZPit_PGvoMqvLlHQ'
     }

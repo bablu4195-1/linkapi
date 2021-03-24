@@ -23,9 +23,6 @@ export class DataTableComponent implements OnInit {
     );
   }
   ngOnInit(): void {
-    this.jobService.getData().subscribe(response => {
-      this.jobs = response;
-    });
     }
     // tslint:disable-next-line:typedef
     Search() {
